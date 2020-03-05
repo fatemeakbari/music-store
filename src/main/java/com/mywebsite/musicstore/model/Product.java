@@ -2,6 +2,7 @@ package com.mywebsite.musicstore.model;
 
 public class Product {
 
+   private Long productId;
    private String productName;
    private String productCategory;
    private String productDescription;
@@ -14,17 +15,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String productCategory, String productDescription,
-                   Double productPrice, String productCondition, String productStatus,
-                   Integer unitInStock, String productManufacturer) {
-        this.productName = productName;
-        this.productCategory = productCategory;
-        this.productDescription = productDescription;
-        this.productPrice = productPrice;
-        this.productCondition = productCondition;
-        this.productStatus = productStatus;
-        this.unitInStock = unitInStock;
-        this.productManufacturer = productManufacturer;
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
