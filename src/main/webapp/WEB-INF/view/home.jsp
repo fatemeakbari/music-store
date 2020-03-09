@@ -12,7 +12,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img class="first-slide" src="<c:url value="/resources/images/im2.jpeg"/>" alt="First slide">
+            <img class="first-slide" src="<c:url value="/resources/images/im1.jpeg"/>" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Welcome to le's Music Store</h1>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="item">
-            <img class="second-slide" src="<c:url value="/resources/images/im1.jpeg"/>" alt="Second slide">
+            <img class="second-slide" src="<c:url value="/resources/images/im2.jpg"/>" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Welcome to le's Music Store</h1>

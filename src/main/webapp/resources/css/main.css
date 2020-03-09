@@ -18,3 +18,16 @@
 .table th{
     text-align: center;
 }
+
+
+.login-container{
+    width: 40%;
+    margin: auto;
+    margin-top: 100px;
+    background: whitesmoke;
+}
+
+.show_cart
+{
+    text-align: center;
+}

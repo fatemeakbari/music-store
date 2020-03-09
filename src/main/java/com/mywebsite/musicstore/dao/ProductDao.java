@@ -1,7 +1,6 @@
 package com.mywebsite.musicstore.dao;
 
 import com.mywebsite.musicstore.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

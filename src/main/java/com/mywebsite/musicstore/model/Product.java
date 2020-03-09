@@ -11,26 +11,26 @@ import javax.validation.constraints.NotEmpty;
 public class Product {
 
 
-   @Id
-   @Column
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long productId;
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
 
-   @NotEmpty(message = "The product name must not be null")
-   private String productName;
-   private String productCategory;
-   private String productDescription;
+    @NotEmpty(message = "The product name must not be null")
+    private String productName;
+    private String productCategory;
+    private String productDescription;
 
-   @Min(value = 0 ,message = "The product price must not be less than zero")
-   private Double productPrice;
-   private String productCondition;
-   private String productStatus;
+    @Min(value = 0 ,message = "The product price must not be less than zero")
+    private Double productPrice;
+    private String productCondition;
+    private String productStatus;
     @Min(value = 0 ,message = "The product unit must not be less than zero")
-   private Integer unitInStock;
-   private String productManufacturer;
+    private Integer unitInStock;
+    private String productManufacturer;
 
-   @Transient
-   private MultipartFile productImage;
+    @Transient
+    private MultipartFile productImage;
 
     public Product() {
     }

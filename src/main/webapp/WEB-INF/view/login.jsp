@@ -3,7 +3,7 @@
 <%@include file="template/header.jsp"%>
 
 <div class="container-wrapper">
-    <div class="container">
+    <div class="login-container">
         <div class="login-box">
 
             <c:if test="${not empty msg}">
