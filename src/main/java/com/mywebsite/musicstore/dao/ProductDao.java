@@ -8,11 +8,11 @@ public interface ProductDao {
 
     void addProduct(Product product);
 
-    Product getProductById(Long id);
+    Product getProductById(int id);
 
     List<Product> getAllProducts();
 
-    void deleteProductById(Long productId);
+    void deleteProduct(Product product);
 
     void editProduct(Product product);
 }

@@ -17,7 +17,7 @@
             <p class="lead">Fill the below information to add a product!</p>
         </div>
 
-    <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct"
+    <form:form action="${pageContext.request.contextPath}/admin/product/addProduct"
                method="post" modelAttribute="product" enctype="multipart/form-data">
 
         <div class="form-group">
@@ -77,7 +77,7 @@
                 Deactive </label>
         </div>
     <input type="submit" value="submit" class="btn btn-default"/>
-        <a href="<c:url value="/admin/productInventory/"/>" class="btn btn-default">Cancel</a>
+        <a href="<c:url value="/admin/product/addProduct"/>" class="btn btn-default">Cancel</a>
     </form:form>
 
 

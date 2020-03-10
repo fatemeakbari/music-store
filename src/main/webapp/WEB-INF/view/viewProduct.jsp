@@ -24,9 +24,9 @@
                 </div>
 
                 <div class="col-md-5">
-                    <h3>"${product.productName}"</h3>
+                    <h3>${product.productName}</h3>
                     <p>
-                        <strong>Description</strong> : "${product.productDescription}"
+                        <strong>Description</strong> : ${product.productDescription}
                     </p>
                     <p>
                         <strong>Manufacturer</strong> :${product.productManufacturer}

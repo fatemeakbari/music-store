@@ -1,44 +1,31 @@
 package com.mywebsite.musicstore.controller;
 
-import com.mywebsite.musicstore.dao.ProductDao;
-import com.mywebsite.musicstore.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.io.IOException;
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-
 public class HomeController {
 
-    @Autowired
-    private ProductDao productDao;
-
-    @RequestMapping("/")
+    @GetMapping("/")
     public String home()
     {
         return "home";
     }
 
-    @RequestMapping("/productList")
-    public String getProducts(Model model)
+    @GetMapping("/login")
+    public String login(@RequestParam(value = "error",required = false) String error,
+                        @RequestParam(value = "logout", required = false) String logout, Model model)
     {
-        List<Product> productList = productDao.getAllProducts();
-        model.addAttribute("productList",productList);
-        return "productList";
+        if(error != null){
+            model.addAttribute("error","Invalid username or password!");
+        }
 
+        if(logout != null){
+            model.addAttribute("msg","You have been logged out successfully!");
+        }
+        return "login";
     }
-
-    @RequestMapping("/productList/viewProduct/{productId}")
-    public String viewProduct(@PathVariable Long productId, Model model) throws IOException {
-        Product product = productDao.getProductById(productId);
-        model.addAttribute(product);
-        return "viewProduct";
-
-    }
-
 }

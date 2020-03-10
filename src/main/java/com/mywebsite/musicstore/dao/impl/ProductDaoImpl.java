@@ -24,10 +24,10 @@ public class ProductDaoImpl implements ProductDao {
         session.flush();
     }
 
-    public Product getProductById(Long id)
+    public Product getProductById(int productId)
     {
         Session session = sessionFactory.getCurrentSession();
-        Product product = (Product) session.get(Product.class,id);
+        Product product = (Product) session.get(Product.class,productId);
         return product;
     }
 
@@ -39,10 +39,8 @@ public class ProductDaoImpl implements ProductDao {
         return productList;
     }
 
-    public void deleteProductById(Long productId)
+    public void deleteProduct(Product product)
     {
-        Product product = new Product();
-        product.setProductId(productId);
         Session session = sessionFactory.getCurrentSession();
         session.delete(product);
         session.flush();

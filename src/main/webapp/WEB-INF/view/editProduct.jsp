@@ -17,7 +17,7 @@
             <p class="lead">Please update product information!</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct"
+        <form:form action="${pageContext.request.contextPath}/admin/product/editProduct"
                    method="post" modelAttribute="product" enctype="multipart/form-data">
         <form:hidden path="productId" value="${product.productId}"/>
         <div class="form-group">
@@ -77,7 +77,7 @@
                 Deactive </label>
         </div>
         <input type="submit" value="submit" class="btn btn-default"/>
-        <a href="<c:url value="/admin/productInventory/"/>" class="btn btn-default">Cancel</a>
+        <a href="<c:url value="/admin/product/editProduct/"/>" class="btn btn-default">Cancel</a>
         </form:form>
 
 

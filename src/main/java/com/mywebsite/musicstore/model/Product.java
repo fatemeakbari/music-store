@@ -1,20 +1,24 @@
 package com.mywebsite.musicstore.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class Product {
+public class Product implements Serializable {
+    private static final long serialVersionUID = 6991438131705690877L;
 
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long productId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int productId;
 
     @NotEmpty(message = "The product name must not be null")
     private String productName;
@@ -29,6 +33,10 @@ public class Product {
     private Integer unitInStock;
     private String productManufacturer;
 
+    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<CartItem> cartItemList;
+
     @Transient
     private MultipartFile productImage;
 
@@ -36,11 +44,11 @@ public class Product {
     }
 
 
-    public Long getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(Long productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
@@ -114,6 +122,14 @@ public class Product {
 
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
+    }
+
+    public List<CartItem> getCartItemList() {
+        return cartItemList;
+    }
+
+    public void setCartItemList(List<CartItem> cartItemList) {
+        this.cartItemList = cartItemList;
     }
 }
 

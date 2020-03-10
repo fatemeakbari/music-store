@@ -11,5 +11,5 @@ public interface CartDao {
     Cart getCartById(String cartId);
     void deleteCartById(String cartId) throws IllegalAccessException;
     void editCart(Cart cart) throws IllegalAccessException;
-    void addCartItem(CartItem cartItem, String cartId) throws IllegalAccessException;
+    void addCartItem(CartItem cartItem, Integer cartId) throws IllegalAccessException;
 }

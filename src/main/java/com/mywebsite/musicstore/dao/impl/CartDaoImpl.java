@@ -10,7 +10,7 @@ import java.util.HashMap;
 @Repository
 public class CartDaoImpl implements CartDao {
 
-    private HashMap<String, Cart> carts;
+    private HashMap<Integer, Cart> carts;
 
     public CartDaoImpl()
     {
@@ -48,12 +48,12 @@ public class CartDaoImpl implements CartDao {
         }
         carts.put(cart.getCartId(),cart);
     }
-    public void addCartItem(CartItem cartItem, String cartId) throws IllegalAccessException {
+    public void addCartItem(CartItem cartItem, Integer cartId) throws IllegalAccessException {
         if(!carts.containsKey(cartId)) {
             throw new IllegalAccessException("the cart id not exist!");
         }
         Cart cart = carts.get(cartId);
-        cart.addCartItem(cartItem);
+        //cart.addCartItem(cartItem);
         carts.put(cartId,cart);
     }
 

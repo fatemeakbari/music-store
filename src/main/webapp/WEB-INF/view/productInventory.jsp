@@ -31,7 +31,7 @@
                 <th></th>
             </tr>
             </thead>
-            <c:forEach items="${productList}" var="product">
+            <c:forEach items="${products}" var="product">
                 <tr>
                     <td><img src="#" alt="image" ></td>
                     <td>${product.productName}</td>
@@ -39,11 +39,11 @@
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice}</td>
                     <td>
-                        <a href="<spring:url value="/productList/viewProduct/${product.productId}" />">
+                        <a href="<spring:url value="/product/viewProduct/${product.productId}" />">
                         <span class="glyphicon glyphicon-info-sign"/></a>
-                        <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productId}" />">
+                        <a href="<spring:url value="/admin/product/deleteProduct/${product.productId}" />">
                             <span class="glyphicon glyphicon-remove"/></a>
-                        <a href="<spring:url value="/admin/productInventory/editProduct/${product.productId}" />">
+                        <a href="<spring:url value="/admin/product/editProduct/${product.productId}" />">
                             <span class="glyphicon glyphicon-pencil"/></a>
 
                     </td>
@@ -51,5 +51,5 @@
             </c:forEach>
         </table>
 
-        <a href="<spring:url value="/admin/productInventory/addProduct" />" class="btn btn-primary"> Add Product</a>
+        <a href="<spring:url value="/admin/product/addProduct" />" class="btn btn-primary"> Add Product</a>
 <%@include file="template/footer.jsp"%>
