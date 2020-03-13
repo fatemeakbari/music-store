@@ -20,6 +20,8 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer getCustomerById(int customerId){
         return customerDao.getCustomerById(customerId);
     }
+    public Customer getCustomerByUsername(String username){ return customerDao.getCustomerByUsername(username);}
+
 
     public void editCustomer(Customer customer){
         customerDao.editCustomer(customer);

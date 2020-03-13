@@ -11,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Repository
@@ -25,9 +29,11 @@ public class CustomerDaoImpl implements CustomerDao {
         Session session = sessionFactory.getCurrentSession();
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
-        session.saveOrUpdate(customer);
+         session.saveOrUpdate(customer);
         session.saveOrUpdate(customer.getBillingAddress());
         session.saveOrUpdate(customer.getShippingAddress());
+
+
 
         Users user = new Users();
         user.setUsername(customer.getUsername());
@@ -43,7 +49,10 @@ public class CustomerDaoImpl implements CustomerDao {
 
         Cart cart = new Cart();
         cart.setCustomer(customer);
+        customer.setCart(cart);
+        session.saveOrUpdate(customer);
         session.saveOrUpdate(cart);
+
 
 
 
@@ -53,6 +62,15 @@ public class CustomerDaoImpl implements CustomerDao {
     public Customer getCustomerById(int customerId) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(Customer.class,customerId);
+    }
+    public Customer getCustomerByUsername(String username){
+        Session session = sessionFactory.getCurrentSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery query = builder.createQuery();
+        Root<Customer> root = query.from(Customer.class);
+        query.select(root).where(builder.equal(root.get("username"), username));
+        return (Customer) session.createQuery(query).getSingleResult();
     }
 
     public void editCustomer(Customer customer) {

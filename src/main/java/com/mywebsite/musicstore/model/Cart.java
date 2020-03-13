@@ -15,7 +15,7 @@ public class Cart implements Serializable {
     @GeneratedValue
     private int cartId;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
     private List<CartItem> cartItems;
 
     @OneToOne
